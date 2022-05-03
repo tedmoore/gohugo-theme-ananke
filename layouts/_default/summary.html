@@ -1,13 +1,12 @@
-<div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    {{with .CurrentSection.Title }}<span class="f6 db">{{ . }}</span>{{end}}
-    <h1 class="f3 near-black">
+<div class="relative w-100 mb0 bg-white">
+  <div class="bg-white mb0 pa0 gray overflow-hidden">
+    <h1 class="f3 near-black mb0">
       <a href="{{ .RelPermalink }}" class="link black dim">
-        {{ .Title }}
+        <i>{{ .Title }}</i> ({{ .Params.Year }})
       </a>
     </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      {{ .Summary }}
+    <div class="nested-links f5 mb2">
+      {{ .Description }}
     </div>
   </div>
 </div>
