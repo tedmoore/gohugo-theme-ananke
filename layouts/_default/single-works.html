@@ -11,7 +11,7 @@
       </h1>
       {{ .Params.description }}
     </header>
-    <div class="nested-copy-line-height lh-solid {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-100-l">
+    <div class="nested-copy-line-height lh-solid {{ $.Param "post_content_classes"  | default "serif"}} f5 nested-links {{ $.Param "text_color" | default "dark-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-100-l">
       {{- .Content -}}
       <!-- {{- partial "tags.html" . -}} -->
     </div>
