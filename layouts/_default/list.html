@@ -23,7 +23,7 @@
         <div class="flex flex-column w-100 lh-copy tc">
                     
           {{ range .Site.Params.worksmedia }}
-            {{ with $.GetPage . }}
+            {{ with $.Site.GetPage . }}
               {{/* <b><i>{{ .Title }}</i> ({{ .Params.Year }})</b> */}}
               <div>
                 <div style="position:relative;padding-top:56.25%">
