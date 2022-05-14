@@ -14,12 +14,7 @@
       <div class="flex flex-wrap pa0">
         {{ range  where .Site.RegularPages ".Params.categories" "intersect" (slice "installation") }}
           <div class="tc w-50 ph3 pb0 pt0">
-            <h1 class="mb0">
-              <a href="{{ .RelPermalink }}" class="f2 athelas near-black link hover-blue">
-                <i>{{- .Title -}}</i> ({{ .Params.Year }})
-              </a>
-            </h1>
-            {{ .Description }}
+            {{ partial "list-a-work.html" . }}
             <img src="{{ .Params.featuredimage }}"  width=100% height=auto> 
           </div>
         {{end}}
