@@ -1,9 +1,28 @@
 {{ define "main" }}
- <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "mid-gray" }}">
+ <article class="w-70 pt3 center">
     {{ .Content }}
-    
-    <!-- Whatever I want to go on my homepage / splash page, needs to go right here -->
-    homepage
-    
+    <div class="flex justify-between w-100 tc">
+      
+      {{ $ncols := 3}}
+      {{ range $column, $el0 := (seq $ncols) }}
+        <div class="flex flex-column w-33 pr2">
+          {{ range $index, $element := (seq (len $.Site.Data.homepage.order)) }}
+            {{ if eq (mod $index $ncols) $column }}
+              {{/* index: {{$index}} */}}
+              {{ $pagename := index $.Site.Data.homepage.order $index }}
+              {{ with $.Site.GetPage $pagename }}
+                <div class="w-100 outline pa3 mb3">
+                  {{ partial "list-a-work.html" . }}
+                  {{ with .Params.featuredimage }}
+                    <img src="{{.}}">
+                  {{ end }}
+                </div>
+              {{ end }}
+            {{end}}
+          {{ end }}
+        </div>
+      {{end}}
+      
+    </div>  
   </article>
 {{ end }}
