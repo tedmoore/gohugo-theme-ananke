@@ -2,9 +2,10 @@
 <br>
 <nav class="pv0 ph0" role="navigation">
   <div class="tc justify-between items-center center">
+    {{/*  Site Title  */}}
     <a href="{{ .Site.Home.RelPermalink }}" class="f1 fw2 hover-blue no-underline black-90 dib">
       {{ with .Site.Params.site_logo }}
-        <img src="{{ relURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
+        <img src="{{ relURL . }}" class="w80 mw5-ns" alt="{{ $.Site.Title }}" />
       {{ else }}
         {{ .Site.Title }} 
       {{ end }}
@@ -14,10 +15,10 @@
     <div class="tc items-center">
       {{ partial "i18nlist.html" . }}
       {{ if .Site.Menus.main }}
-        <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }}">
+        <ul class="{{ cond (eq $.Site.Language.LanguageDirection `rtl`) `pr0 ml3` `pl0 mr3` }}">
           {{ range .Site.Menus.main }}
-          <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}"> <!-- dib = "display inline block"-->
-            <a class="hover-blue no-underline gray f4 lh-copy {{ $.Param `menu_classes` }}" href="{{ .URL }}" title="{{ i18n "pageTitle" . }}">
+          <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection `rtl`) `pl3` `pr3` }}"> <!-- dib = "display inline block"-->
+            <a class="hover-blue no-underline gray f4 fw3 lh-copy {{ $.Param `menu_classes` }}" href="{{ .URL }}" title="{{ i18n `pageTitle` . }}">
               {{ .Name }}
             </a>
           </li>

@@ -1,21 +1,23 @@
-{{ define "main" }}
- <article class="w-70 pt3 center">
+{{/*  Site Landing Page  */}}
+{{ define "main" }} 
+ <article class="w-100 pt3 center">
     {{ .Content }}
     <div class="flex justify-between w-100 tc">
       
       {{ $ncols := 3}}
       {{ range $column, $el0 := (seq $ncols) }}
-        <div class="flex flex-column w-33 pr2">
+        <div class="flex flex-column w-100 pr0 pv0">
           {{ range $index, $element := (seq (len $.Site.Data.homepage.order)) }}
             {{ if eq (mod $index $ncols) $column }}
-              {{/* index: {{$index}} */}}
               {{ $pagename := index $.Site.Data.homepage.order $index }}
               {{ with $.Site.GetPage $pagename }}
-                <div class="w-100 outline pa3 mb3">
+                <div class="pb2">
+                  {{/*  Show the Featured Image for the work  */}}
+                    <a href="{{ .RelPermalink }}">
+                      <img src="{{.Params.featuredimage | default `/images/eclipse/eclipse01.jpg` }}">
+                    </a>
+                  {{/*  List the work  */}}
                   {{ partial "list-a-work.html" . }}
-                  {{ with .Params.featuredimage }}
-                    <img src="{{.}}">
-                  {{ end }}
                 </div>
               {{ end }}
             {{end}}
