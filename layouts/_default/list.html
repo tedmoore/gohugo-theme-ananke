@@ -13,18 +13,19 @@
     </section>
     <section class="flex w-100 center h8">
         <div class="flex-column pr4 lh-copy measure-narrow">
-          {{ range .Pages.ByWeight }}
-            {{ partial "list-a-work.html" . }}
+          {{ range $index, $element := (seq (len $.Site.Data.worksorder.order)) }}
+              {{ $pagename := index $.Site.Data.worksorder.order $index }}
+              {{ with $.Site.GetPage $pagename }}
+                {{ partial "list-a-work.html" . }}
+              {{ end }}
+            
           {{ end }}
         </div>
-        
         <div class="flex flex-column w-100 lh-copy tc">
-                    
           {{ range site.Params.works_media }}
             {{ partial "display-media-by-type.html" . }}
             <br>
           {{ end }}   
-               
         </div>
     </section>
     <!-- {{- template "_internal/pagination.html" . -}} -->
