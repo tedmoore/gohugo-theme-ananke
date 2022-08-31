@@ -13,11 +13,11 @@
     </section>
     <section class="flex w-100 center h8">
         <div class="flex-column pr4 lh-copy measure-narrow">
-          {{ range $index, $element := (seq (len $.Site.Data.worksorder.order)) }}
-              {{ $pagename := index $.Site.Data.worksorder.order $index }}
-              {{ with $.Site.GetPage $pagename }}
-                {{ partial "list-a-work.html" . }}
-              {{ end }}
+          {{ range site.Params.works_order }}
+              
+            {{ with $.Site.GetPage .name }}
+              {{ partial "list-a-work.html" . }}
+            {{ end }}
             
           {{ end }}
         </div>

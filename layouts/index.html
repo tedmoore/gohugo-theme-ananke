@@ -6,10 +6,10 @@
       {{ $ncols := 3}}
       {{ range $column, $el0 := (seq $ncols) }}
         <div class="flex flex-column w-100 pr0 pv0">
-          {{ range $index, $element := (seq (len $.Site.Data.homepage.order)) }}
+          {{ range $index, $element := (seq (len site.Params.homepage_order)) }}
             {{ if eq (mod $index $ncols) $column }}
-              {{ $pagename := index $.Site.Data.homepage.order $index }}
-              {{ with $.Site.GetPage $pagename }}
+              {{ $pagename := index (site.Params.homepage_order) $index }}
+              {{ with $.Site.GetPage $pagename.name }}
                 <div class="container">
                   <img src="{{.Params.featuredimage | default `/images/eclipse/eclipse01.jpg` }}"class="image">
                   <a href="{{ .RelPermalink }}">
