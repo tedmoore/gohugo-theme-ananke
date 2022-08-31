@@ -9,13 +9,13 @@
         {{- .Title -}}
       </h1>
     </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f5 {{ $.Param "text_color" | default "dark-gray" }} w-100-l pb0">  
+    <div class="nested-copy-line-height lh-copy {{ $.Param `post_content_classes`  | default `serif`}} f5 {{ $.Param `text_color` | default `dark-gray` }} w-100-l pb0">  
       {{- .Content -}}
       <div class="flex flex-wrap pa0">
         {{ range  where .Site.RegularPages ".Params.categories" "intersect" (slice "installation") }}
           <div class="tc w-50 ph3 pb0 pt0">
             {{ partial "list-a-work.html" . }}
-            <img src="{{ .Params.featuredimage }}"  width=100% height=auto> 
+            <a href="{{ .RelPermalink }}"><img src="{{ .Params.featuredimage }}"  width=100% height=auto> 
           </div>
         {{end}}
       </div>

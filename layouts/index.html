@@ -3,7 +3,6 @@
  <article class="w-100 pt3 center">
     {{ .Content }}
     <div class="flex justify-between w-100 tc">
-      
       {{ $ncols := 3}}
       {{ range $column, $el0 := (seq $ncols) }}
         <div class="flex flex-column w-100 pr0 pv0">
@@ -11,13 +10,16 @@
             {{ if eq (mod $index $ncols) $column }}
               {{ $pagename := index $.Site.Data.homepage.order $index }}
               {{ with $.Site.GetPage $pagename }}
-                <div class="pb2">
-                  {{/*  Show the Featured Image for the work  */}}
-                    <a href="{{ .RelPermalink }}">
-                      <img src="{{.Params.featuredimage | default `/images/eclipse/eclipse01.jpg` }}">
-                    </a>
-                  {{/*  List the work  */}}
-                  {{ partial "list-a-work.html" . }}
+                <div class="container">
+                  <img src="{{.Params.featuredimage | default `/images/eclipse/eclipse01.jpg` }}"class="image">
+                  <a href="{{ .RelPermalink }}">
+                    <div class="overlay">
+                      <div class="text">
+                        {{ partial "work-title.html" . }}
+                        <div class="f5 gray">{{ .Description }}</div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               {{ end }}
             {{end}}

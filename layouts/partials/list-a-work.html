@@ -1,9 +1,9 @@
 <div class="relative w-100 mb0">
-  <div class="mb0 pa0 gray overflow-hidden">
-    <h1 class="f4 near-black mb0">
+  <div class="mb0 pa0 overflow-hidden">
+    <h1 class="f4 mb0">
       {{if isset . "URL" }}
         {{ if not (eq .URL "none") }}
-          <a href="{{ .URL }}" class="link near-black hover-blue">
+          <a href="{{ .URL }}" class="link white hover-blue">
             {{ partial "work-title.html" . }}
           </a>
         {{else}}
