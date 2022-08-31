@@ -8,7 +8,7 @@
     </header>
     
     <br>
-    <section class="cf tc {{ $.Param "post_content_classes"  | default "serif"}} f5 center {{ $.Param "text_color" | default "dark-gray" }} nested-copy-line-height lh-copy"> <!--- lh = line height --->
+    <section class="cf tc {{ $.Param `post_content_classes`  | default `serif`}} f5 center {{ $.Param `text_color` | default `dark-gray` }} nested-copy-line-height lh-copy"> <!--- lh = line height --->
       {{ .Content }}
     </section>
     <section class="flex w-100 center h8">
