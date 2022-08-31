@@ -3,7 +3,7 @@
     <h1 class="f4 mb0">
       {{if isset . "URL" }}
         {{ if not (eq .URL "none") }}
-          <a href="{{ .URL }}" class="link white hover-blue">
+          <a href="{{ .URL }}" class="link near-black hover-blue">
             {{ partial "work-title.html" . }}
           </a>
         {{else}}

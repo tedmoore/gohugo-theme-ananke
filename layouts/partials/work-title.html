@@ -1,1 +1,1 @@
-<i>{{ .Title }}</i> {{if .Params.Year}}({{.Params.Year}}){{else}}{{if isset . "Year"}}({{.Year}}){{end}}{{end}}
+<i>{{ .Params.Alttitle | default .Title }}</i> {{if .Params.Year}}({{.Params.Year}}){{else}}{{if isset . "Year"}}({{.Year}}){{end}}{{end}}

@@ -9,7 +9,7 @@
         {{- .Title -}}
       </h1>
     </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f5 {{ $.Param "text_color" | default "dark-gray" }} w-100-l">
+    <div class="nested-copy-line-height lh-copy {{ $.Param `post_content_classes`  | default `serif`}} f5 {{ $.Param `text_color` | default `dark-gray` }} w-100-l">
       {{- .Content -}}
       <section class="flex w-100 center h8">
         
