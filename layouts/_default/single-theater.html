@@ -20,7 +20,7 @@
         </div>
         
         <div class="flex flex-column hl-copy near-black pa0">
-          {{ range .Site.Data.theater.media }}
+          {{ range site.Params.theater_media }}
             <div class= "tc f4 pa0"><b><i>{{.Title}}</i> ({{ .Year }})</b> {{ with .info }}{{- . -}}{{end}}
               {{ partial "display-media-by-type.html" . }}
             </div>
