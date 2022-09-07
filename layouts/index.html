@@ -11,7 +11,7 @@
               {{ $pagename := index (site.Params.homepage_order) $index }}
               {{ with $.Site.GetPage $pagename.name }}
                 <div class="container">
-                  <img src="{{.Params.featuredimage | default `/images/eclipse/eclipse01.jpg` }}"class="image">
+                  <img src="{{.Params.featured_image | default `/images/eclipse/eclipse01.jpg` }}"class="image">
                   <a href="{{ .RelPermalink }}">
                     <div class="overlay">
                       <div class="text">
