@@ -16,10 +16,12 @@
       {{ partial "i18nlist.html" . }}
       {{ if .Site.Menus.main }}
         <ul class="{{ cond (eq $.Site.Language.LanguageDirection `rtl`) `pr0 ml3` `pl0 mr3` }}">
+          {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
-          <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection `rtl`) `pl3` `pr3` }}"> <!-- dib = "display inline block"-->
+          <li class="list f5 f4-ns fw4 {{ if eq $currentPage.RelPermalink .URL }}bg-light-gray{{end}} dib tc pl3 pr3"> <!-- dib = "display inline block"-->
             <a class="hover-blue no-underline gray f4 fw3 lh-copy {{ $.Param `menu_classes` }}" href="{{ .URL }}" title="{{ i18n `pageTitle` . }}">
-              {{ .Name }}
+              {{/*  {{ if eq $currentPage.RelPermalink .URL }}<u>{{end}}{{ .Name }}{{ if eq $currentPage.RelPermalink .URL }}</u>{{end}}  */}}
+              {{.Name}}
             </a>
           </li>
           {{ end }}
