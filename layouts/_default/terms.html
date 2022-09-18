@@ -14,7 +14,7 @@
             {{ $key }}
           </a>
         </h2>
-        {{ range $value.Pages }}
+        {{ range  ($value.Pages.ByParam "year").Reverse }}
           {{ .Render "summary" }}
         {{ end }}
       {{ end }}
