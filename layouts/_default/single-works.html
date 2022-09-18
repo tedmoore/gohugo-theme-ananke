@@ -13,13 +13,6 @@
     <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f5 nested-links {{ $.Param "text_color" | default "dark-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-100-l">
       {{- .Content -}}
     </div>
-    {{ if gt (len (.GetTerms "tags")) 0}}
-      <div class="tl">
-      tags: 
-        {{ range $index, $element := (.GetTerms "tags") }}
-          {{ if gt $index 0}}{{- "" -}}, {{end}}<a href="{{- .Permalink -}}">{{- .LinkTitle -}}</a>
-        {{ end }}
-      </div>
-    {{end}}
+    {{ partial "display-tags.html" . }}
   </article>
 {{ end }}
