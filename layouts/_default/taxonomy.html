@@ -1,8 +1,10 @@
 {{/*  this is the list for a page showing a single tag, such as "pages tagged with: 'dmx'" */}}
 {{ define "main" }}
-  <article class="tc pt3 pb0 mb0">
-    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links {{ $.Param "text_color" | default "mid-gray" }}">
-      <p>{{ i18n "taxonomyPageList" . }}</p>
+  <article class="tc pt4 mb0">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links pb0{{ $.Param "text_color" | default "mid-gray" }}">
+      {{ i18n "taxonomyPageList" . }}
+      <br>
+      <a href="/tags/"><i>see all tags</i></a>
     </div>
   </article>
   <div class="mw8 center">
